@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>  
+	 <definition name="qnaWrite" extends="main">
+    	<put-attribute name="title" value="고객상담 게시판 글쓰기"/>
+    	<put-attribute name="body" value="/WEB-INF/views/board/qnaWrite.jsp"/>   
+     </definition>
+
+
+     <definition name="qnaList" extends="main">
+    	<put-attribute name="title" value="감상평게시판 목록"/>
+    	<put-attribute name="body" value="/WEB-INF/views/board/qnaList.jsp"/>
+    </definition>
+    
+     
+	<definition name="qnaView" extends="main">
+    	<put-attribute name="title" value="글 상세"/>
+    	<put-attribute name="body" value="/WEB-INF/views/board/qnaView.jsp"/>
+    	<put-list-attribute name="jsList">
+        	<add-attribute value="../resources/user/js/jquery.js"/>
+        	<add-attribute value="../resources/user/js/plugins.js"/>
+        	<add-attribute value="../resources/user/js/qna.reply.js"/>
+        </put-list-attribute>    	
+    </definition>
+    
+	<definition name="qnaModify" extends="main">
+    	<put-attribute name="title" value="글 수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/board/qnaModify.jsp"/>
+    </definition> 
+	<definition name="qnaDelete" extends="main">
+    	<put-attribute name="title" value="글 수정"/>
+    	<put-attribute name="body" value="/WEB-INF/views/board/qnaDelete.jsp"/>
+    </definition> 
+
+
+
+
+ <definition name="pageError" extends="main">
+    	<put-attribute name="title" value="에러페이지"/>
+    	<put-attribute name="body" value="/WEB-INF/views/error/pageError.jsp"/>
+   </definition>  
+    
+</tiles-definitions>
+
