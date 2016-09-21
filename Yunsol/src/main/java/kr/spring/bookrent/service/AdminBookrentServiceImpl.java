@@ -51,4 +51,9 @@ public class AdminBookrentServiceImpl implements AdminBookrentService{
 	public void updateBookRent(AdminBookrentCommand bookrent) {
 		bookrentMapper.updateBookRent(bookrent);
 	}
+
+	@Override
+	public void updateRentCancel(AdminBookrentCommand bookrent) {
+		bookrentMapper.updateRentCancel(bookrent);
+	}
 }

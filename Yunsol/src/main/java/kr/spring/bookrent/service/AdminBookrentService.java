@@ -16,8 +16,9 @@ public interface AdminBookrentService {
 	@Transactional(readOnly=true)
 	public int getRowCount(Map<String, Object> map);
 	public int getReserveCount(Integer list_num);
-	public void updateStatusChange(AdminBookrentCommand bookrent);
-	public void reserveToWaiting(Integer list_num);
-	public void updatePenalty(MemberCommand member);
-	public void updateBookRent(AdminBookrentCommand bookrent);
+	public void updateBookRent(AdminBookrentCommand bookrent);//도서 대출처리
+	public void updateStatusChange(AdminBookrentCommand bookrent);//도서 반납처리
+	public void updatePenalty(MemberCommand member);//연체일 존재하는 책 반납시
+	public void reserveToWaiting(Integer list_num);//예약도서 -> 대출대기	
+	public void updateRentCancel(AdminBookrentCommand bookrent);//입금 지연등의 이유로 대여 취소
 }

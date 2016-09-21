@@ -10,7 +10,7 @@ public class AdminBookrentCommand {
 	private int rent_status;
 	private String list_title;
 	private String list_code;
-	private Date return_regdate;
+	private Date rent_returndate;
 	
 	public int getRent_num() {
 		return rent_num;
@@ -55,25 +55,17 @@ public class AdminBookrentCommand {
 		this.list_code = list_code;
 	}
 	
-	public Date getReturn_regdate() {
-		return new Date(getRent_regdate().getTime()+ (21*24*60*60*1000));
+	public Date getRent_returndate() {
+		return rent_returndate;
 	}
-	public void setReturn_regdate(Date return_regdate) {
-		this.return_regdate = return_regdate;
+	public void setRent_returndate(Date rent_returndate) {
+		this.rent_returndate = rent_returndate;
 	}
-	
-	/*public Date getPenaltyDate() {
-		return new Date((toDay.getTime() / (1000*60*60*24)) - (return_regdate.getTime() / (1000*60*60*24)));
-	}
-	public void setPenaltyDate(Date penaltyDate) {
-		this.penaltyDate = penaltyDate;
-	}*/
 	
 	@Override
 	public String toString() {
-		return "BookrentCommand [rent_num=" + rent_num + ", list_num=" + list_num + ", mem_id=" + mem_id
+		return "AdminBookrentCommand [rent_num=" + rent_num + ", list_num=" + list_num + ", mem_id=" + mem_id
 				+ ", rent_regdate=" + rent_regdate + ", rent_status=" + rent_status + ", list_title=" + list_title
-				+ ", list_code=" + list_code + ", return_regdate=" + return_regdate + "]";
+				+ ", list_code=" + list_code + ", rent_returndate=" + rent_returndate + "]";
 	}	
-	
 }

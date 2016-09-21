@@ -58,7 +58,7 @@ function rentStop_event(list_num,list_title){
 		location.href='updateStatus.do?list_num='+list_num+'&list_status=1';
 	}else{
 		return;
-	}	
+	}
 }
 
 /*==================================관리자 대출 도서==================================*/
@@ -85,17 +85,34 @@ $("#bookrentSearch").change(function(){
 });
 
 //관리자 대출 목록 반납,승인,대출 처리시 확인
-function bookReturn_event(rent_num,rent_status,list_title,list_num){//도서 반납처리 -> 반납시 예약중 도서 대출대기로 상태변경	
-	location.href='updateStatus.do?rent_num='+ rent_num+'&rent_status=1'+'&list_num='+list_num;
-	alert("["+list_title+"] 이/가 반납되었습니다."); 
+function bookRent_event(rent_num,list_title){//대출대기 도서 -> 대출 처리
+	if (confirm("["+list_title+"] 을/를 대출 처리하시겠습니까?") == true) {
+		location.href='updateRent.do?rent_num='+ rent_num+'&rent_status=0';
+	}else{
+		return;
+	}
 }
 
-function bookRent_event(rent_num,list_title){//대출대기 도서 -> 대출 처리
-	location.href='updateRent.do?rent_num='+ rent_num+'&rent_status=0';
-	alert("["+list_title+"] 이/가 대출 처리되었습니다.");
+function bookReturn_event(rent_num,rent_status,list_title,list_num){//도서 반납처리 -> 반납시 예약중 도서 대출대기로 상태변경	
+	if (confirm("["+list_title+"] 을/를 반납하시겠습니까?") == true) {
+		location.href='updateStatus.do?rent_num='+ rent_num+'&rent_status=1'+'&list_num='+list_num;
+	}else{
+		return;
+	}
 }
 
 function updatePenalty_event(rent_num,mem_penalty,list_title,mem_id){//연체도서 -> 패널티,반납 처리
-	location.href='updatePenalty.do?rent_num='+ rent_num+'&mem_penalty='+mem_penalty+'&rent_status=1'+'&mem_id='+mem_id;
-	alert("["+list_title+"] 이/가 반납되었습니다.");	
+	if (confirm("["+list_title+"] 을/를 반납하시겠습니까?") == true) {
+		location.href='updatePenalty.do?rent_num='+ rent_num+'&mem_penalty='+mem_penalty+'&rent_status=1'+'&mem_id='+mem_id;
+	}else{
+		return;
+	}
+}
+
+function bookCancel_event(rent_num,list_title){//대출 or 예약 취소	
+	if (confirm("["+list_title+"] 예약을 취소하시겠습니까?") == true) {
+		location.href='updateCancel.do?rent_num='+ rent_num+'&rent_status=4';
+	}else{
+		return;
+	}
 }

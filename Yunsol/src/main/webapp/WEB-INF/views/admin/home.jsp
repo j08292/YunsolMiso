@@ -48,7 +48,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">

@@ -12,25 +12,25 @@ import kr.spring.bookrent.domain.AdminBookrentCommand;
 import kr.spring.bookrent.service.AdminBookrentService;
 
 @Controller
-public class BookrentUpdateRentController {
+public class BookrentCancelController {
 	private Logger log= Logger.getLogger(this.getClass());
 
 	@Resource
 	private AdminBookrentService bookrentService;
-	
-	@RequestMapping("/admin/bookrent/updateRent.do")
+
+	@RequestMapping("/admin/bookrent/updateCancel.do")
 	public ModelAndView process(@RequestParam("rent_num") int rent_num,
 								@RequestParam("rent_status") int rent_status){
-		
+
 		if(log.isDebugEnabled()){
 			log.debug("rent_num : " +rent_num);
 			log.debug("rent_status : " +rent_status);
 		}
-		
+
 		AdminBookrentCommand bookrent = new AdminBookrentCommand();
 		bookrent.setRent_num(rent_num);
 		bookrent.setRent_status(rent_status);
-		bookrentService.updateBookRent(bookrent);
+		bookrentService.updateRentCancel(bookrent);
 
 		return new ModelAndView("redirect:/admin/bookrent/list.do");
 	}

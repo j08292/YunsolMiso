@@ -51,20 +51,23 @@
 							<td>${article.rent_regdate}</td>
 							<td><c:choose>
 									<c:when test="${article.rent_status == 0}">
-									${article.return_regdate}
+									${article.rent_returndate}
 								</c:when>
 									<c:otherwise>-</c:otherwise>
 								</c:choose></td>
-							<td><c:choose>									
+							<td><c:choose>							
 									<c:when test="${article.rent_status == 0}">
 										<!-- 대출중 도서의 연체일 구하기 -->
 										<jsp:useBean id="toDay" class="java.util.Date" />
-										<fmt:parseDate var="returnDate" value="${article.return_regdate}" pattern="yyyy-MM-dd" />
+										<fmt:parseDate var="returnDate" value="${article.rent_returndate}" pattern="yyyy-MM-dd" />
 										<fmt:parseNumber value="${toDay.time / (1000*60*60*24)}" integerOnly="true" var="nowDays" scope="request" />
 										<fmt:parseNumber value="${returnDate.time / (1000*60*60*24)}" integerOnly="true" var="oldDays" scope="request" />
-										<c:if test="${toDay > article.return_regdate}">
-											<font color="red"> ${nowDays - oldDays} </font>
-										</c:if>
+										<c:choose>
+											<c:when test="${toDay > article.rent_returndate}">
+												<font color="red"> ${nowDays - oldDays} </font>
+											</c:when>
+											<c:otherwise>-</c:otherwise>
+										</c:choose>
 									</c:when>
 									<c:otherwise>-</c:otherwise>
 								</c:choose></td>
@@ -72,9 +75,9 @@
 								<c:if test="${article.rent_status == 2}">예약중</c:if>
 								<c:if test="${article.rent_status == 3}">대출대기</c:if></td>
 							<td>
-								<c:if test="${article.rent_status == 0}"><!-- 대출 도서 -->								
+								<c:if test="${article.rent_status == 0}"><!-- 대출 도서 -->
 									<c:if test="${(nowDays - oldDays) > 0}"><!-- 연체 도서 -->
-										<input type="button" onclick="javascript:updatePenalty_event(${article.rent_num},${nowDays - oldDays},'${article.list_title}','${article.mem_id}');" value="반납" class="btn btn-xs btn-danger">
+										<input type="button" onclick="javascript:updatePenalty_event(${article.rent_num},${nowDays - oldDays},'${article.list_title}','${article.mem_id}');" value="반납" class="btn btn-xs btn-warning">
 									</c:if>
 									<c:if test="${(nowDays - oldDays) <= 0}">									
 										<input type="button" onclick="javascript:bookReturn_event(${article.rent_num},${article.rent_status},'${article.list_title}',${article.list_num});" value="반납" class="btn btn-xs btn-warning">										
@@ -82,13 +85,14 @@
 								</c:if>								
 								<c:if test="${article.rent_status == 3}"><!-- 대출대기 도서 -->
 									<input type="button" onclick="javascript:bookRent_event(${article.rent_num},'${article.list_title}');" value="대출" class="btn btn-xs btn-primary">
+									<input type="button" onclick="javascript:bookCancel_event(${article.rent_num},'${article.list_title}');" value="취소" class="btn btn-xs btn-danger">
 								</c:if>
-							</td>									
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div align="center">${pagingHtml}</div>	
+		<div align="center">${pagingHtml}</div>
 	</c:if>
 </div>

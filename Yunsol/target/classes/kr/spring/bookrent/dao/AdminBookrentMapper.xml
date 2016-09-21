@@ -18,7 +18,8 @@
 							l.list_code,
 							r.mem_id,
 							r.rent_regdate,
-							r.rent_status
+							r.rent_status,
+							r.rent_returndate
 						  FROM booklist l, bookrent r
 						WHERE
 							l.list_num=r.list_num
@@ -62,7 +63,8 @@
 			l.list_code,
 			r.mem_id,
 			r.rent_regdate,
-			r.rent_status
+			r.rent_status,
+			r.rent_returndate
 		  FROM booklist l, bookrent r
 		WHERE
 			l.list_num=r.list_num
