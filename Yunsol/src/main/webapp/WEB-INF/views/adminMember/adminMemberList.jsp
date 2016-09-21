@@ -2,11 +2,25 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
+<c:if test='${!empty param.keyword && param.keyfield == "bk_state"}'>
+	<script type="text/javascript">
+		$(function() {
+			$('#selectBox')
+					.val(
+							'../book/search.do?keyfield=bk_state&keyword=${param.keyword}');
+		});
+	</script>
+</c:if>
+
+<!-- Stylesheets ============================================= -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 <div>  
 	<h1 class="page-header"><spring:message code="adminMember.list.title" /></h1>
-	<form action="list.do" id="search_form" method="get">
+	<form action="list.do" id="search_form" method="post">
 		<div align="center">
-			<select name="keyfield">
+			<select name="keyfield" id="selectBox" class="form-control">
 				<option value="mem_id">ID</option>
 				<option value="mem_name">이름</option>
 				<option value="mem_cell">연락처</option>
@@ -24,7 +38,7 @@
 	<c:if test="${count > 0 }">
 		<div class="panel panel-default">
 			<div class="panel-heading" style="text-align: center">회원 검색결과</div>
-			<form action="search.do" class="form-inline" id="detail-form" method="post" style="text-align: center">
+			<form action="list.do" class="form-inline" id="detail-form" method="post" style="text-align: center">
 
 				<table class="table table-hover provideList">
 					<thead>
@@ -64,46 +78,4 @@
 		</div>
 		<div align="center">${pagingHtml }</div>
 	</c:if>
-
-	<%-- <c:if test="${count > 0}">
-		<div class="table-responsive">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th style="text-align:center;">등록번호</th>
-						<th style="text-align:center;">제목</th>
-						<th style="text-align:center;">지은이</th>
-						<th style="text-align:center;">출판사</th>
-						<th style="text-align:center;">ISBN</th>
-						<th style="text-align:center;">페이지수</th>
-						<th style="text-align:center;">책사진</th>
-						<th style="text-align:center;">입고날짜</th>
-						<th style="text-align:center;">도서상태</th>
-					</tr>
-				</thead>
-				<tbody style="text-align:center;">
-					<c:forEach var="article" items="${list}">
-						<tr>
-							<td>${article.list_num}</td>
-							<td><a href="update.do?list_num=${article.list_num}">${article.list_title}</a></td>
-							<td>${article.list_writer}</td>
-							<td>${article.list_publish}</td>
-							<td>${article.list_code}</td>
-							<td>${article.list_page}</td>
-							<td><c:choose>
-									<c:when test="${!empty article.list_filename}">						
-										<img src="/lib/upload/${article.list_filename}" class="adminListImage" data-num="${article.list_num}" height="20px"/>
-									</c:when>
-									<c:otherwise>파일 없음</c:otherwise>
-								</c:choose></td>
-							<td>${article.list_regdate}</td>
-							<td><c:if test="${article.list_status == 1}">대출정지</c:if>
-								<c:if test="${article.list_status == 0}"></c:if></td>
-						</tr>						
-					</c:forEach>				
-				</tbody>
-			</table>
-		</div>
-		<div align="center">${pagingHtml}</div>
-	</c:if> --%>
 </div>

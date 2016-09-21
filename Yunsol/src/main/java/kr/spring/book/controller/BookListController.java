@@ -30,11 +30,11 @@ public class BookListController {
 	@Resource
 	private BookListService bookListService;
 	
-	// 커맨드 객체 초기화
-		@ModelAttribute("command")
-		public MemberCommand initCommand() {
-			return new MemberCommand();
-		}
+	//커맨드 객체 초기화
+	@ModelAttribute("command")
+	public MemberCommand initCommand() {
+		return new MemberCommand();
+	}
 	
 	@RequestMapping(value = "/book/search.do", method = RequestMethod.GET)
 	public String form(){
@@ -88,6 +88,5 @@ public class BookListController {
 		mav.addObject("pagingHtml", page.getPagingHtml());
 		
 		return mav;
-	}
-	
+	}	
 }
