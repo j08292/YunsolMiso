@@ -81,42 +81,4 @@ public class AdminMemberListController {
 
 		return mav;
 	}
-
-	/*@RequestMapping("/admin/member/list.do")
-	public ModelAndView process(@RequestParam(value="pageNum",defaultValue="1")int currentPage,
-								@RequestParam(value="keyfield",defaultValue="")String keyfield,
-								@RequestParam(value="keyword",defaultValue="")String keyword){
-
-		if(log.isDebugEnabled()){
-			log.debug("currentPage : "+currentPage);
-			log.debug("keyfield : "+keyfield);
-			log.debug("keyword : "+keyword);
-		}
-
-		HashMap<String, Object> map= new HashMap<String, Object>();
-		map.put("keyfield", keyfield);
-		map.put("keyword", keyword);
-
-		//ÃÑ ±ÛÀÇ °¹¼ö ¶Ç´Â °Ë»öµÈ ±ÛÀÇ °¹¼ö
-		int count= adminMemberService.getRowCount(map);
-
-		PagingUtil page= new PagingUtil(keyfield,keyword,currentPage,count, rowCount,pageCount,"/admin/member/list.do");
-
-		map.put("start", page.getStartCount());
-		map.put("end", page.getEndCount());
-
-		List<AdminMemberCommand> list= null;
-		if(count>0){
-			list= adminMemberService.list(map);
-		}else{
-			list= Collections.emptyList();
-		}
-
-		ModelAndView mav= new ModelAndView();
-		mav.setViewName("adminMemberList");
-		mav.addObject("count", count);
-		mav.addObject("list", list);
-		mav.addObject("pagingHtml", page.getPagingHtml());
-		return mav;
-	}*/
 }
