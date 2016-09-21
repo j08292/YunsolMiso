@@ -32,7 +32,6 @@ public class BooklistWriteController {
 	public String form(HttpSession session, Model model){
 
 		String mem_id= (String)session.getAttribute("userId");
-		/*String mem_level= (String)session.getAttribute("userLevel");*/
 
 		AdminBooklistCommand command= new AdminBooklistCommand();
 		command.setMem_id(mem_id);
