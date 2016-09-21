@@ -22,6 +22,4 @@ public interface MemberMapper {
 	
 	@Delete("DELETE FROM member WHERE mem_id = #{mem_id}") 	
 	public void delete(String id);
-	
-
 }

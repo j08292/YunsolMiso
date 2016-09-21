@@ -76,13 +76,5 @@
 				list_code like '%' || #{keyword} || '%'
 			</if>
 		</where>
-	</select>
-	
+	</select>	
 </mapper>
-
-
-
-
-
-
-

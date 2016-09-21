@@ -47,7 +47,7 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#mem_manage"><i class="fa fa-user"></i> 회원 관리 <i class="fa fa-fw fa-caret-down"></i></a>
                     	<ul id="mem_manage" class="collapse">
                             <li>
-                                <a href="#">회원 정보 조회</a>
+                                <a href="${pageContext.request.contextPath}/admin/member/list.do">회원 정보 조회</a>
                             </li>
                             <li>
                                 <a href="#">차단 회원 관리</a>

@@ -1,4 +1,4 @@
-package kr.spring.member.domain;
+package kr.spring.adminMember.domain;
 
 import java.sql.Date;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class MemberCommand {
+public class AdminMemberCommand {
 	@NotEmpty
 	private String mem_id;
 	@NotEmpty
@@ -29,13 +29,13 @@ public class MemberCommand {
 	private int mem_level;
 	private int mem_penalty;
 
-	// 비밀번호 일치 여부 체크
+	/*// 비밀번호 일치 여부 체크
 	public boolean isCheckedPasswd(String userPasswd) {
 		if (mem_passwd.equals(userPasswd)) {
 			return true;
 		}
 		return false;
-	}
+	}*/
 	
 	public String getMem_id() {
 		return mem_id;
