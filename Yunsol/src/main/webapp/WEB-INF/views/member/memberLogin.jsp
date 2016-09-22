@@ -51,9 +51,10 @@
 							<%-- 	<form id="login-form" name="login-form" class="nobottommargin"
 									action="write.do" method="post"> --%>
 
-									<form:form action="login.do" commandName="command"
-										id="login-form" class="nobottommargin">
-										<form:errors element="div" class="error-color" />
+									<form:form action="login.do" commandName="command" id="login-form" class="nobottommargin">
+										<form:errors element="div" class="error-color"/>
+										<spring:message code="member.block.title" arguments="${penalty.penalty_blockcanceldate}"/>
+										
 
 										<li class="col_full"><label for="mem_id">아이디:</label>
 											<form:input path="mem_id" class="form-control" />
