@@ -47,4 +47,10 @@ public class MemberServiceImpl implements MemberService {
 
 	}
 
+	@Override
+	public int checkBlock(String mem_id) {
+		//차단 회원 관리
+		return memberMapper.checkBlock(mem_id);
+	}
+
 }

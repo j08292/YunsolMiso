@@ -95,15 +95,15 @@ function bookRent_event(rent_num,list_title){//대출대기 도서 -> 대출 처
 
 function bookReturn_event(rent_num,rent_status,list_title,list_num){//도서 반납처리 -> 반납시 예약중 도서 대출대기로 상태변경	
 	if (confirm("["+list_title+"] 을/를 반납하시겠습니까?") == true) {
-		location.href='updateStatus.do?rent_num='+ rent_num+'&rent_status=1'+'&list_num='+list_num;
+		location.href='updateReturn.do?rent_num='+ rent_num+'&rent_status=1'+'&list_num='+list_num;
 	}else{
 		return;
 	}
 }
 
-function updatePenalty_event(rent_num,mem_penalty,list_title,mem_id){//연체도서 -> 패널티,반납 처리
+function insertPenalty_event(rent_num,mem_id,list_title,penalty_day){//연체도서 -> 패널티,반납 처리
 	if (confirm("["+list_title+"] 을/를 반납하시겠습니까?") == true) {
-		location.href='updatePenalty.do?rent_num='+ rent_num+'&mem_penalty='+mem_penalty+'&rent_status=1'+'&mem_id='+mem_id;
+		location.href='insertPenalty.do?rent_num='+ rent_num+'&rent_status=1'+'&mem_id='+mem_id+'&list_title='+list_title+'&penalty_day='+penalty_day;		
 	}else{
 		return;
 	}

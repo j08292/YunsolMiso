@@ -19,7 +19,7 @@ public class BookrentReturnController {
 	@Resource
 	private AdminBookrentService bookrentService;
 	
-	@RequestMapping("/admin/bookrent/updateStatus.do")
+	@RequestMapping("/admin/bookrent/updateReturn.do")
 	public ModelAndView process(@RequestParam("rent_num") int rent_num,
 								@RequestParam("rent_status") int rent_status,
 								@RequestParam("list_num") int list_num){
@@ -35,13 +35,13 @@ public class BookrentReturnController {
 			AdminBookrentCommand bookrent = new AdminBookrentCommand();
 			bookrent.setRent_num(rent_num);
 			bookrent.setRent_status(rent_status);
-			bookrentService.updateStatusChange(bookrent);		
+			bookrentService.updateBookReturn(bookrent);		
 			bookrentService.reserveToWaiting(list_num);
 		}else{//µµ¼­¹Ý³³
 			AdminBookrentCommand bookrent = new AdminBookrentCommand();
 			bookrent.setRent_num(rent_num);
 			bookrent.setRent_status(rent_status);
-			bookrentService.updateStatusChange(bookrent);
+			bookrentService.updateBookReturn(bookrent);
 		}
 		
 		return new ModelAndView("redirect:/admin/bookrent/list.do");

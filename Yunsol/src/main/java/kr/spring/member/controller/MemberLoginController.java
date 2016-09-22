@@ -54,14 +54,19 @@ public class MemberLoginController {
 			boolean check = false;
 			
 			if(member!=null){
-				check = member.isCheckedPasswd(memberCommand.getMem_passwd());
+				check = member.isCheckedPasswd(memberCommand.getMem_passwd());				
 			}
 			if(check){
-				//인증 성공, 로그인 처리
-				session.setAttribute("userId", memberCommand.getMem_id());
-				session.setAttribute("mem_level", member.getMem_level());
-				
-				return "redirect:/main/main.do";
+				if(memberService.checkBlock(memberCommand.getMem_id()) > 0){//차단회원 로그인 시도 -> 로그인 막음
+					result.reject("blockMemberId");
+					return form();
+				}else{
+					//인증 성공, 로그인 처리
+					session.setAttribute("userId", memberCommand.getMem_id());
+					session.setAttribute("mem_level", member.getMem_level());
+					
+					return "redirect:/main/main.do";
+				}				
 			}else{
 				//인증 실패
 				throw new Exception();
@@ -73,10 +78,3 @@ public class MemberLoginController {
 		}
 	}
 }
-
-
-
-
-
-
-

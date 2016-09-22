@@ -22,4 +22,7 @@ public interface MemberMapper {
 	
 	@Delete("DELETE FROM member WHERE mem_id = #{mem_id}") 	
 	public void delete(String id);
+	
+	@Select("SELECT count(*) FROM penalty WHERE penalty_blockcanceldate > sysdate AND mem_id=#{mem_id}")
+	public int checkBlock(String mem_id);//아직 차단회원일경우 1, 아니면 0
 }

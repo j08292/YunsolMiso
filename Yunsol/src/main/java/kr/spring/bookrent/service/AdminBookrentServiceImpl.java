@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.spring.bookrent.dao.AdminBookrentMapper;
 import kr.spring.bookrent.domain.AdminBookrentCommand;
-import kr.spring.member.domain.MemberCommand;
+import kr.spring.penalty.domain.PenaltyCommand;
 
 @Service("bookrentService")
 public class AdminBookrentServiceImpl implements AdminBookrentService{
@@ -33,8 +33,8 @@ public class AdminBookrentServiceImpl implements AdminBookrentService{
 	}
 	
 	@Override
-	public void updateStatusChange(AdminBookrentCommand bookrent) {
-		bookrentMapper.updateStatusChange(bookrent);
+	public void updateBookReturn(AdminBookrentCommand bookrent) {
+		bookrentMapper.updateBookReturn(bookrent);
 	}
 	
 	@Override
@@ -43,8 +43,8 @@ public class AdminBookrentServiceImpl implements AdminBookrentService{
 	}
 	
 	@Override
-	public void updatePenalty(MemberCommand member) {
-		bookrentMapper.updatePenalty(member);
+	public void insertPenalty(PenaltyCommand penalty) {
+		bookrentMapper.insertPenalty(penalty);		
 	}
 	
 	@Override
@@ -55,5 +55,5 @@ public class AdminBookrentServiceImpl implements AdminBookrentService{
 	@Override
 	public void updateRentCancel(AdminBookrentCommand bookrent) {
 		bookrentMapper.updateRentCancel(bookrent);
-	}
+	}	
 }
