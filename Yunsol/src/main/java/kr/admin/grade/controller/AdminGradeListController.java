@@ -1,4 +1,4 @@
-package kr.admin.board.controller;
+package kr.admin.grade.controller;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,53 +12,54 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.spring.review.domain.ReviewCommand;
-import kr.spring.review.service.ReviewService;
+import kr.spring.grade.domain.GradeCommand;
+import kr.spring.grade.service.GradeService;
 import kr.spring.util.PagingUtil;
 
 @Controller
-public class AdminReviewListController {
-	private Logger log = Logger.getLogger(this.getClass());	
+public class AdminGradeListController {
+	private Logger log = Logger.getLogger(getClass());
 	private int rowCount = 10;
 	private int pageCount = 10;
-	
-	@Resource
-	private ReviewService reviewService;
 
-	@RequestMapping("admin/board/list.do")
+	@Resource
+	private GradeService gradeService;
+
+	@RequestMapping("/admin/grade/list.do")
 	private ModelAndView process(@RequestParam(value="pageNum" , defaultValue="1")int currentPage,
 								 @RequestParam(value="keyfield" , defaultValue="")String keyfield,
 								 @RequestParam(value="keyword", defaultValue="")String keyword){
 		if(log.isDebugEnabled()){
-			log.debug("currentPage : " + currentPage);
+			log.debug("pageNum : " + currentPage);
 			log.debug("keyfield : " + keyfield);
 			log.debug("keyword : " +keyword);
 		}
+
 		HashMap<String, Object> map =new HashMap<String, Object>();
 		map.put("keyfield" , keyfield);
 		map.put("keyword", keyword);
-
+		
 		//ÃÑ ±ÛÀÇ °¹¼ö ¶Ç´Â °Ë»öµÈ ±ÛÀÇ °¹¼ö
-		int count = reviewService.getRowCount(map);
+		int count = gradeService.getAdminRowCountGrade(map);
 
 		PagingUtil page = new PagingUtil(keyfield, keyword, currentPage, count,rowCount, pageCount, "list.do");
-
+		
 		map.put("start", page.getStartCount());
 		map.put("end", page.getEndCount());
 
-		List<ReviewCommand> list = null;
+		List<GradeCommand> adminGradeList = null;
 		if(count > 0){
-			list = reviewService.list(map);
+			adminGradeList = gradeService.adminGradeList(map);
 		}else{
-			list=Collections.emptyList();
+			adminGradeList = Collections.emptyList();
 		}
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("adminReviewList");
+		mav.setViewName("adminGradeList");
 		mav.addObject("count",count);
-		mav.addObject("list",list);
+		mav.addObject("list",adminGradeList);
 		mav.addObject("pagingHtml",page.getPagingHtml());
 
 		return mav;
-	}	
+	}
 }

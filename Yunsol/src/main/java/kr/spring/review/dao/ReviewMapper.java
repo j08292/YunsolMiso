@@ -29,14 +29,6 @@ public interface ReviewMapper {
 	public void update(ReviewCommand review);
 	@Delete("DELETE FROM review WHERE review_num = #{review_num}")
 	public void delete(Integer review_num);
-	
-	//관리자 게시물 관리
-	//파일 삭제를 위해 글 정보 가져오기
-	public List<ReviewCommand> selectReviewAdmin(List<Integer> list);
-	//해당 글번호에 작성된 모든 댓글 삭제
-	public void deleteReplyByReviewNum(List<Integer> list);
-	//해당 글번호의 게시글 삭제
-	public void deleteByReviewNum(List<Integer> list);
 
 	//댓글
 	public List<ReviewReplyCommand> listReply(Map<String,Object> map);
@@ -53,4 +45,12 @@ public interface ReviewMapper {
 	//부모글의 글번호로 댓글 삭제
 	@Delete("DELETE FROM review_reply WHERE review_num = #{review_num}")
 	public void deleteReplyByReview_num(Integer review_num);
+		
+	//관리자 게시물 관리
+	//파일 삭제를 위해 글 정보 가져오기
+	public List<ReviewCommand> selectReviewAdmin(List<Integer> list);
+	//해당 글번호에 작성된 모든 댓글 삭제
+	public void deleteReplyByReviewNum(List<Integer> list);
+	//해당 글번호의 게시글 삭제
+	public void deleteByReviewNum(List<Integer> list);
 }

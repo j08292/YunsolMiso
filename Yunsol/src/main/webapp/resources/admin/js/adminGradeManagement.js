@@ -1,4 +1,4 @@
-/*==================================관리자 감상평 관리==================================*/
+/*==================================관리자 한줄평 관리==================================*/
 //리스트 폼 초기화
 function initAdminList(){
 	location.href="list.do";
@@ -6,19 +6,14 @@ function initAdminList(){
 
 //체크박스 폼 초기화
 function initCheck(){
-	$("input[name=review_num]:checkbox").attr("checked", false);
+	$("input[name=grade_num]:checkbox").attr("checked", false);
 }
 
-//관리자 목록에서 상세보기 클릭시 체크박스 초기화
-$('.detail_btn').click(function(){
-	initCheck();
-});
-
 //글목록 - 체크박스
-function ajaxReviewDelete(){
+function ajaxGradeDelete(){
 	var allData = '';
 
-	if($("input[name=review_num]:checkbox:checked").length == 0){
+	if($("input[name=grade_num]:checkbox:checked").length == 0){
 		alert('삭제 할 게시물을 선택하십시오.');
 		return;	
 	}else{
@@ -26,16 +21,13 @@ function ajaxReviewDelete(){
 			$.ajax({
 				url:"delete.do",
 				type:'GET',
-				data: $("input[name='review_num']:checked").serialize(),
+				data: $("input[name='grade_num']:checked").serialize(),
 				success:function(data){
-					alert($("input[name=review_num]:checkbox:checked").length + "개 삭제 완료!");
-					//window.opener.location.reload();
-					//self.close();
+					alert($("input[name=grade_num]:checkbox:checked").length + "개 삭제 완료!");					
 					initAdminList();
 				},
 				error:function(){			
 					alert('네트워크 오류 발생!');//서버프로그램에서 오류발생
-					//self.close();
 				}
 			});			
 		}else {
@@ -54,13 +46,3 @@ $("#allCheck").click(function(){
 		$("input[type=checkbox]").prop("checked",false);
 	}
 })
-
-/*==================================관리자 공지사항 관리==================================*/
-//공지사항 삭제 처리시 확인
-function delete_event(notice_num) {
-	if (confirm("정말 삭제하시겠습니까?") == true) { //확인
-		location.href='delete.do?notice_num='+notice_num;
-	}else{
-		return;
-	}
-}
