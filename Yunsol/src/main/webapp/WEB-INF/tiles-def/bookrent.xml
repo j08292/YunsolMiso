@@ -19,7 +19,6 @@
 			<add-attribute value="/YunsolMiso/resources/admin/js/plugins/morris/morris-data.js" />
 			<add-attribute value="/YunsolMiso/resources/admin/js/statusChange.js" />
 		</put-list-attribute>	
-	</definition>
-	
+	</definition>	
 	
 </tiles-definitions>

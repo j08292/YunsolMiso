@@ -10,26 +10,27 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- 자동 스캔 -->
-	<context:component-scan base-package="kr.spring.member.controller"/>
-	<context:component-scan base-package="kr.spring.book.controller"/>
-	<context:component-scan base-package="kr.admin.booklist.controller"/>
-	<context:component-scan base-package="kr.user.speech.controller"/>
-	<context:component-scan base-package="kr.admin.speech.controller"/>
 	<context:component-scan base-package="kr.spring.admin.controller"/>
-	<context:component-scan base-package="kr.spring.review.controller"/>
-	<context:component-scan base-package="kr.user.marathon.controller"/>
-	<context:component-scan base-package="kr.admin.marathon.controller"/>	
+	<context:component-scan base-package="kr.spring.member.controller"/>
+	<context:component-scan base-package="kr.spring.adminMember.controller"/>
+	<context:component-scan base-package="kr.spring.penalty.controller"/>
+	<context:component-scan base-package="kr.admin.booklist.controller"/>
 	<context:component-scan base-package="kr.admin.bookrent.controller"/>
+	<context:component-scan base-package="kr.spring.book.controller"/>
+	<context:component-scan base-package="kr.admin.speech.controller"/>
+	<context:component-scan base-package="kr.user.speech.controller"/>
+	<context:component-scan base-package="kr.admin.board.controller"/>	
+	<context:component-scan base-package="kr.spring.review.controller"/>
+	<context:component-scan base-package="kr.admin.marathon.controller"/>
+	<context:component-scan base-package="kr.user.marathon.controller"/>	
 	<context:component-scan base-package="kr.admin.wishlist.controller"/>
 	<context:component-scan base-package="kr.user.wishlist.controller"/>
 	<context:component-scan base-package="kr.admin.notice.controller"/>
-	<context:component-scan base-package="kr.user.notice.controller"/>
-	<context:component-scan base-package="kr.admin.board.controller"/>
+	<context:component-scan base-package="kr.user.notice.controller"/>	
 	<context:component-scan base-package="kr.spring.qna.controller"/>
-	<context:component-scan base-package="kr.spring.adminMember.controller"/>
-	<context:component-scan base-package="kr.spring.penalty.controller"/>
 	<context:component-scan base-package="kr.spring.grade.controller"/>
 	<context:component-scan base-package="kr.admin.grade.controller"/>
+	
 	
 	<!-- 본 프로젝트에 맞게 자동 스캔 수정할 것 -->
 	
@@ -80,7 +81,6 @@
 				<beans:value>/WEB-INF/tiles-def/bookrent.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/wishlist.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/notice.xml</beans:value>
-				<beans:value>/WEB-INF/tiles-def/member.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/qna.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/book.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/adminMember.xml</beans:value>

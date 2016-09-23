@@ -15,8 +15,8 @@
 				<option value="mem_cell">연락처</option>
 				<option value="mem_address">주소</option>
 				<option value="all">전체</option>
-			</select> <input type="text" size="16" name="keyword"> <input
-				type="submit" value="찾기">
+			</select> <input type="text" size="16" name="keyword">
+			<input type="submit" value="찾기">
 		</div>
 	</form>
 	<c:if test="${count == 0}">

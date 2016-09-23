@@ -43,12 +43,5 @@
     	<put-attribute name="title" value="에러페이지"/>
     	<put-attribute name="body" value="/WEB-INF/views/error/pageError.jsp"/>
     </definition>
+    
 </tiles-definitions>
-
-
-
-
-
-
-
-
