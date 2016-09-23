@@ -53,7 +53,10 @@
 
 									<form:form action="login.do" commandName="command" id="login-form" class="nobottommargin">
 										<form:errors element="div" class="error-color"/>
-										<spring:message code="member.block.title" arguments="${penalty.penalty_blockcanceldate}"/>
+										<span>${reason}</span>
+										<br>
+										<span>${blockcanceldate}</span>
+										
 										
 
 										<li class="col_full"><label for="mem_id">아이디:</label>

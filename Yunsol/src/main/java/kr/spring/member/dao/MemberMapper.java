@@ -26,6 +26,6 @@ public interface MemberMapper {
 	
 	@Select("SELECT count(*) FROM penalty WHERE penalty_blockcanceldate > sysdate AND mem_id=#{mem_id}")
 	public int checkBlock(String mem_id);//아직 차단회원일경우 1, 아니면 0
-	@Select("SELECT mem_id,blockcanceldate,penalty_reason FROM(SELECT a.*,rownum FROM (SELECT mem_id,max(penalty_blockcanceldate)blockcanceldate,penalty_reason FROM penalty GROUP BY mem_id,penalty_reason HAVING mem_id=#{mem_id} ORDER BY max(penalty_blockcanceldate)desc)a) WHERE rownum=1;")
+	@Select("SELECT mem_id,blockcanceldate,penalty_reason FROM(SELECT a.*,rownum FROM (SELECT mem_id,max(penalty_blockcanceldate)blockcanceldate,penalty_reason FROM penalty GROUP BY mem_id,penalty_reason HAVING mem_id=#{mem_id} ORDER BY max(penalty_blockcanceldate)desc)a) WHERE rownum=1")
 	public PenaltyCommand selectBlockMember(String mem_id);//차단사유, 차단해지 예정일
 }

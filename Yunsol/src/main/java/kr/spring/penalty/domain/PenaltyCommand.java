@@ -12,6 +12,7 @@ public class PenaltyCommand {
 	private String mem_id;
 	@NotEmpty
 	private String penalty_reason;
+	private Date blockcanceldate;
 	
 	public int getPenalty_num() {
 		return penalty_num;
@@ -48,12 +49,18 @@ public class PenaltyCommand {
 	}
 	public void setPenalty_reason(String penalty_reason) {
 		this.penalty_reason = penalty_reason;
+	}	
+	public Date getBlockcanceldate() {
+		return blockcanceldate;
+	}
+	public void setBlockcanceldate(Date blockcanceldate) {
+		this.blockcanceldate = blockcanceldate;
 	}
 	
 	@Override
 	public String toString() {
 		return "PenaltyCommand [penalty_num=" + penalty_num + ", penalty_regdate=" + penalty_regdate
 				+ ", penalty_blockcanceldate=" + penalty_blockcanceldate + ", penalty_day=" + penalty_day + ", mem_id="
-				+ mem_id + ", penalty_reason=" + penalty_reason + "]";
+				+ mem_id + ", penalty_reason=" + penalty_reason + ", blockcanceldate=" + blockcanceldate + "]";
 	}		
 }
