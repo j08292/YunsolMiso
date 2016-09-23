@@ -41,8 +41,8 @@
 							<td>${article.list_title}</td>
 							<td>${article.mem_id}</td>
 							<td>${article.grade_content}</td>
-							<td>${article.grade_star}
-								<img src="../resources/grade/images/'+${article.grade_star}+'.PNG">							
+							<td>
+								<img src="${pageContext.request.contextPath}/resources/grade/images/${article.grade_star}.PNG">
 							</td>
 							<td>${article.grade_regdate}</td>							
 							<td>
