@@ -47,7 +47,7 @@
 					 		  g.mem_id,
 					 		  g.grade_content,
 					 		  g.grade_star,
-					 		  to_char(g.grade_regdate,'YYYY-MM-DD HH24:MI:SS')grade_regdate
+					 		  to_char(g.grade_regdate,'YYYY-MM-DD')grade_regdate
 		  				  FROM grade g, booklist l 
 	  				WHERE 
 	  					g.list_num = l.list_num
@@ -80,7 +80,7 @@
 		 		  g.mem_id,
 		 		  g.grade_content,
 		 		  g.grade_star,
-		 		  to_char(g.grade_regdate,'YYYY-MM-DD HH24:MI:SS')grade_regdate
+		 		  to_char(g.grade_regdate,'YYYY-MM-DD')grade_regdate
 			   FROM grade g, booklist l 
 			WHERE 
 				g.list_num = l.list_num 

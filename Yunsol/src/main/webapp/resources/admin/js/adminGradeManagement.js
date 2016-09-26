@@ -46,3 +46,35 @@ $("#allCheck").click(function(){
 		$("input[type=checkbox]").prop("checked",false);
 	}
 })
+
+//한줄평 내용 더보기
+function adminGradeView(grade_num){
+	var count;
+	//로딩 이미지 노출
+	$('#loading').show();
+
+	//목록 Ajax
+	$.ajax({
+		type:'post',
+		data:{grade_num:grade_num},
+		url:'adminGradeViewAjax.do',
+		dataType:'json',
+		cache:false,
+		timeout:30000,
+		success:function(data){
+			//로딩 이미지 감추기
+			$('#loading').hide();
+			$('#shortContent_'+grade_num).hide();
+			var content = data.content;			
+			var output = '';
+			output += '<span>'+content+'</span>';
+			//문서 객체에 추가
+			$('#output_'+grade_num).append(output);
+		},
+		error:function(){
+			//로딩 이미지 감추기
+			$('#loading').hide();
+			alert('네트워크 오류 발생!');
+		}
+	});
+}

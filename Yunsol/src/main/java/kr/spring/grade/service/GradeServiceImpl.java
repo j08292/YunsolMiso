@@ -59,5 +59,10 @@ public class GradeServiceImpl implements GradeService{
 	@Override
 	public void deleteByGradeNum(List<Integer> list) {
 		gradeMapper.deleteByGradeNum(list);
-	}	
+	}
+
+	@Override
+	public GradeCommand selectAdminGrade(Integer grade_num) {
+		return gradeMapper.selectAdminGrade(grade_num);
+	}
 }

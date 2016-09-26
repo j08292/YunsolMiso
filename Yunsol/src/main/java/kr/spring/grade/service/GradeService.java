@@ -21,6 +21,8 @@ public interface GradeService {
 	//관리자 글 목록
 	public List<GradeCommand> adminGradeList(Map<String, Object> map);
 	public int getAdminRowCountGrade(Map<String,Object> map);
+	//한줄평 내용 더보기
+	public GradeCommand selectAdminGrade(Integer grade_num);
 	//해당 글번호의 한줄평 삭제
 	public void deleteByGradeNum(List<Integer> list);
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
@@ -25,6 +26,9 @@ public interface GradeMapper {
 	//관리자 글 목록
 	public List<GradeCommand> adminGradeList(Map<String, Object> map);
 	public int getAdminRowCountGrade(Map<String,Object> map);
+	//한줄평 내용 더보기
+	@Select("SELECT * FROM grade WHERE grade_num= #{grade_num}")
+	public GradeCommand selectAdminGrade(Integer grade_num);
 	//해당 글번호의 한줄평 삭제
 	public void deleteByGradeNum(List<Integer> list);
 }
