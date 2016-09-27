@@ -27,6 +27,7 @@ public class AdminBooklistCommand {
 	private int list_status;
 	@NotEmpty
 	private String mem_id;
+	private int rent_count;
 	
 	public int getList_num() {
 		return list_num;
@@ -100,12 +101,20 @@ public class AdminBooklistCommand {
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
+	public int getRent_count() {
+		return rent_count;
+	}
+	public void setRent_count(int rent_count) {
+		this.rent_count = rent_count;
+	}
+	
 	
 	@Override
 	public String toString() {
-		return "BooklistCommand [list_num=" + list_num + ", list_code=" + list_code + ", list_title=" + list_title
+		return "AdminBooklistCommand [list_num=" + list_num + ", list_code=" + list_code + ", list_title=" + list_title
 				+ ", list_writer=" + list_writer + ", list_publish=" + list_publish + ", list_page=" + list_page
 				+ ", upload=" + upload + ", list_filename=" + list_filename + ", list_regdate=" + list_regdate
-				+ ", list_grade=" + list_grade + ", list_status=" + list_status + ", mem_id=" + mem_id + "]";
-	}	
+				+ ", list_grade=" + list_grade + ", list_status=" + list_status + ", mem_id=" + mem_id + ", rent_count="
+				+ rent_count + "]";
+	}
 }

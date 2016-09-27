@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import kr.spring.util.DurationFromNow;
+
 public class PenaltyCommand {
 	private int penalty_num;
 	private Date penalty_regdate;
@@ -13,6 +15,7 @@ public class PenaltyCommand {
 	@NotEmpty
 	private String penalty_reason;
 	private Date blockcanceldate;
+	private String regdate_String;
 	
 	public int getPenalty_num() {
 		return penalty_num;
@@ -56,11 +59,18 @@ public class PenaltyCommand {
 	public void setBlockcanceldate(Date blockcanceldate) {
 		this.blockcanceldate = blockcanceldate;
 	}
+	public String getRegdate_String() {
+		return regdate_String;
+	}
+	public void setRegdate_String(String regdate_String) {
+		this.regdate_String = DurationFromNow.getTimeDiffLabel(regdate_String);
+	}
 	
 	@Override
 	public String toString() {
 		return "PenaltyCommand [penalty_num=" + penalty_num + ", penalty_regdate=" + penalty_regdate
 				+ ", penalty_blockcanceldate=" + penalty_blockcanceldate + ", penalty_day=" + penalty_day + ", mem_id="
-				+ mem_id + ", penalty_reason=" + penalty_reason + ", blockcanceldate=" + blockcanceldate + "]";
-	}		
+				+ mem_id + ", penalty_reason=" + penalty_reason + ", blockcanceldate=" + blockcanceldate
+				+ ", regdate_String=" + regdate_String + "]";
+	}
 }

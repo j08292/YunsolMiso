@@ -27,8 +27,6 @@ public class AdminReviewDeleteController {
 	@ResponseBody
 	public Map<String,String> submit(@RequestParam(value="review_num") List<Integer> list) throws Exception{
 
-		System.out.println("list : " + list);
-
 		if(log.isDebugEnabled()){
 			log.debug("list : " + list);
 		}

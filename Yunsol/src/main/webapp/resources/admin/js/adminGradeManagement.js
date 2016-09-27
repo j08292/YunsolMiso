@@ -78,3 +78,22 @@ function adminGradeView(grade_num){
 		}
 	});
 }
+
+/*var old_id = "output_1";
+
+function adminGradeView(grade_num)
+{
+	var id = "output_" +grade_num;
+
+	if(old_id == "")
+	{
+		document.getElementById(id).style.display = "";
+		old_id = id;
+	}else if(old_id != id)
+	{
+		document.getElementById(id).style.display = "";
+		document.getElementById(old_id).style.display = "none";
+
+		old_id = id;
+	}
+}*/

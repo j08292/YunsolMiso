@@ -58,7 +58,7 @@
 								<c:if test="${fn:length(article.grade_content) > 16}">
 									<div id="shortContent_${article.grade_num}">
 										<c:out value="${fn:substring(article.grade_content,0,15)}" />
-										<a href="javascript:adminGradeView(${article.grade_num}); this.onclick=null;">...</a>
+										<a href="javascript:adminGradeView(${article.grade_num}); this.onclick=null;" >...</a>
 									</div>
 									<!-- 한줄평 더보기 ajax -->
 									<div id="output_${article.grade_num}"></div>

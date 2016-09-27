@@ -14,8 +14,10 @@ public interface PenaltyService {
 	@Transactional(readOnly=true)
 	public int getRowCount(Map<String, Object> map);	
 	public void insert(PenaltyCommand penalty);
+	public void updateCancelDate(String mem_id);
 	@Transactional(readOnly=true)
-	public PenaltyCommand selectPenalty(Integer penalty_num);
+	public List<PenaltyCommand> reasonView(String mem_id);
+	public int getReasonCount(String mem_id);
 	public void update(PenaltyCommand penalty);	
 	public void delete(Integer penalty_num);
 }
