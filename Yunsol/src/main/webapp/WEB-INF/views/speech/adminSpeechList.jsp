@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <div>
 	<h1 class="page-header">
-	<spring:message code="speech.list.title"/> | <a href="${pageContext.request.contextPath}/admin/speech/noCheckReserveList.do"><small>강연 미승인 신청자</small></a>
+	<spring:message code="speech.list.title"/> | <a href="${pageContext.request.contextPath}/admin/speech/noCheckReserveList.do"><small>강연 미승인 신청자</small></a> | <a href="${pageContext.request.contextPath}/admin/speech/speechReserveCancelList.do"><small>강연 예약 취소자</small></a>
 	</h1>
 	
 	<form action="list.do" id="search_form" method="get">

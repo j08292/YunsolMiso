@@ -15,15 +15,11 @@ public class AdminServiceImpl implements AdminService{
 
 	@Resource
 	private AdminMapper adminMapper;
+	
 	//메인 -  관리자 체크 사항 ====================================
 	@Override
-	public int getSpeechReserveCount() {
-		return adminMapper.getSpeechReserveCount();
-	}
-
-	@Override
-	public int getMarathonCount() {
-		return adminMapper.getMarathonCount();
+	public int getRentWaitingCount() {
+		return adminMapper.getRentWaitingCount();
 	}
 
 	@Override
@@ -32,9 +28,35 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public int getRentWaitingCount() {
-		return adminMapper.getRentWaitingCount();
+	public int getSpeechReserveCount() {
+		return adminMapper.getSpeechReserveCount();
 	}
+
+	@Override
+	public int getSpeechCancelCount() {
+		return adminMapper.getSpeechCancelCount();
+	}
+
+	@Override
+	public int getBookReserveCount() {
+		return adminMapper.getBookReserveCount();
+	}
+
+	@Override
+	public int getMarathonCount() {
+		return adminMapper.getMarathonCount();
+	}
+
+	@Override
+	public int getQnaWaitingCount() {
+		return adminMapper.getQnaWaitingCount();
+	}
+	
+	@Override
+	public int getPrevEventCount() {
+		return adminMapper.getPrevEventCount();
+	}
+	
 	//메인 - 관리자 차단회원 관리 ==================================
 	@Override
 	public List<PenaltyCommand> penaltyList() {
@@ -45,11 +67,13 @@ public class AdminServiceImpl implements AdminService{
 	public int getRowPenaltyCount() {
 		return adminMapper.getRowPenaltyCount();
 	}
+	
 	//메인 - 인기도서 관리 ======================================
 	@Override
 	public List<AdminBooklistCommand> rentRankList() {
 		return adminMapper.rentRankList();
 	}
+	
 	//메인 - 최근 3개월 도서현황 ==================================
 	@Override
 	public int getBookRentCount_2() {		
@@ -94,5 +118,5 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public int getBooklistCount_0() {
 		return adminMapper.getBooklistCount_0();
-	}
+	}	
 }

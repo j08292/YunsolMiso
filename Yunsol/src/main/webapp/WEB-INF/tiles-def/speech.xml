@@ -77,35 +77,17 @@
 		<put-attribute name="title" value="미승인 강연 신청자 목록"/>
 		<put-attribute name="body" value="/WEB-INF/views/speech/adminNoCheckSpeechReserve.jsp"/>
 	</definition>
+	<definition name="adminSpeechReserveCancelList" extends="speechWrite">
+		<put-attribute name="title" value="강연 예약 취소자 목록"/>
+		<put-attribute name="body" value="/WEB-INF/views/speech/adminSpeechReserveCancelList.jsp"/>
+	</definition>
 	<definition name="speechUpdate" extends="speechWrite">
 		<put-attribute name="title" value="강연 수정"/>
 		<put-attribute name="body" value="/WEB-INF/views/speech/speechUpdate.jsp"/>
 	</definition>
 	<definition name="userSpeechList" extends="main">
 		<put-attribute name="title" value="강연 목록"/>
-		<put-attribute name="body" value="/WEB-INF/views/speech/userSpeechList.jsp"/>
-		<!-- <put-list-attribute name="cssList">
-        	<add-attribute value="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"/>
-        	<add-attribute value="../resources/user/css/bootstrap.css"/>
-        	<add-attribute value="../resources/user/style.css"/>
-        	<add-attribute value="../resources/user/css/dark.css"/>
-        	<add-attribute value="../resources/user/css/font-icons.css"/>
-        	<add-attribute value="../resources/user/css/animate.css"/>
-        	<add-attribute value="../resources/user/css/magnific-popup.css"/>
-        	<add-attribute value="../resources/user/css/responsive.css"/>
-        	jquery ui datepicker
-		    <add-attribute value="/YunsolMiso/resources/admin/css/jquery-ui.css"/>
-        </put-list-attribute>
-		 <put-list-attribute name="jsList">
-        	<add-attribute value="../resources/user/js/jquery.js"/>
-        	<add-attribute value="../resources/user/js/plugins.js"/>
-        	검색js
-        	<add-attribute value="../resources/user/js/userSpeechList.js"/>
-        	jquery ui datepicker
-		    <add-attribute value="/YunsolMiso/resources/admin/js/jquery-1.12.4.js"/>
-		    <add-attribute value="/YunsolMiso/resources/admin/js/jquery-ui.js"/>
-        </put-list-attribute>
-	 -->
+		<put-attribute name="body" value="/WEB-INF/views/speech/userSpeechList.jsp"/>		
 	</definition>
 	<definition name="userSpeechDetail" extends="userSpeechList">
 		<put-attribute name="title" value="강연 상세"/>
@@ -121,13 +103,4 @@
 	</definition>
 	
 	
-	
 </tiles-definitions>
-
-
-
-
-
-
-
-

@@ -85,14 +85,12 @@
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#event_manage"><i class="fa fa-fw fa-dashboard"></i> 이벤트 관리  <i class="fa fa-fw fa-caret-down"></i></a>
                     	<ul id="event_manage" class="collapse">
+                            
+                            <li>
+                                <a href="${pageContext.request.contextPath }/admin/event/list.do">이벤트 목록</a>
+                            </li>
                             <li>
                                 <a href="${pageContext.request.contextPath }/admin/marathon/list.do">독서마라톤 완주자</a>
-                            </li>
-                            <li>
-                                <a href="#"></a>
-                            </li>
-                            <li>
-                                <a href="#"></a>
                             </li>
                         </ul>
                     </li>

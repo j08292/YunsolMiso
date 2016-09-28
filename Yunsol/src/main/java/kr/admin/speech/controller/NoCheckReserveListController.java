@@ -54,6 +54,5 @@ public class NoCheckReserveListController {
 		mav.addObject("pagingHtml",page.getPagingHtml());
 
 		return mav;
-	}
-	
+	}	
 }

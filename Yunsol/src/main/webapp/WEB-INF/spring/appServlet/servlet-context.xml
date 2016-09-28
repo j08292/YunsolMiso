@@ -30,6 +30,8 @@
 	<context:component-scan base-package="kr.spring.qna.controller"/>
 	<context:component-scan base-package="kr.spring.grade.controller"/>
 	<context:component-scan base-package="kr.admin.grade.controller"/>
+	<context:component-scan base-package="kr.admin.event.controller"/>
+	<context:component-scan base-package="kr.spring.event.controller"/>
 	
 	
 	<!-- 본 프로젝트에 맞게 자동 스캔 수정할 것 -->
@@ -85,6 +87,7 @@
 				<beans:value>/WEB-INF/tiles-def/book.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/adminMember.xml</beans:value>
 				<beans:value>/WEB-INF/tiles-def/grade.xml</beans:value>
+				<beans:value>/WEB-INF/tiles-def/event.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -133,9 +136,3 @@
 	</beans:bean>
 	
 </beans:beans>
-
-
-
-
-
-

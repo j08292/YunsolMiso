@@ -42,4 +42,7 @@ public interface SpeechService {
 	//미승인 예약자(신청자)
 	public List<SpeechReservationCommand> noCheckReserveList(Map<String, Object> map);
 	public int getRowCountNoCheck(Map<String, Object> map);
+	//강연 취소 신청자
+	public List<SpeechReservationCommand> speechReserveCancelList(Map<String, Object> map);
+	public int getReserveCancelCount(Map<String, Object> map);
 }

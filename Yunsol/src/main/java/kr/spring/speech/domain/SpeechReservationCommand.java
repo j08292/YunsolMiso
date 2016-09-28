@@ -60,13 +60,12 @@ public class SpeechReservationCommand {
 	public void setSpeech_title(String speech_title) {
 		this.speech_title = speech_title;
 	}
+	
 	@Override
 	public String toString() {
 		return "SpeechReservationCommand [speech_reserve_num=" + speech_reserve_num + ", speech_num=" + speech_num
 				+ ", mem_id=" + mem_id + ", speech_reserve_status=" + speech_reserve_status + ", speech_reserve_date="
 				+ speech_reserve_date + ", mem_name=" + mem_name + ", depositDate=" + depositDate + ", speech_title="
 				+ speech_title + "]";
-	}
-	
-	
+	}	
 }

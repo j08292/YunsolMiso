@@ -93,6 +93,7 @@
 			]]> 
 	</select>
 	
+	<!-- 강연 예약 미승인자 -->
 	<select id="noCheckReserveList" parameterType="map" resultType="speechReservationCommand">
 		SELECT 
 			sr.speech_reserve_num,
@@ -109,7 +110,7 @@
 				FROM speech_reservation 
 				ORDER BY speech_reserve_num ASC)a) sr, speech s 
 			WHERE sr.speech_num=s.speech_num 
-			AND (speech_reserve_status = 0 OR speech_reserve_status=2)
+			AND speech_reserve_status = 0
 		<![CDATA[	
 		AND rnum >= #{start} AND rnum <= #{end}
 		]]> 
@@ -118,7 +119,36 @@
 		SELECT
 		  count(*)
 		FROM speech_reservation
-		WHERE speech_reserve_status = 0 OR speech_reserve_status=2
+		WHERE speech_reserve_status = 0
 	</select>
-	
+	<!-- 강연 예약 미승인자 -->
+	<!-- 강연 예약 취소자 -->
+	<select id="speechReserveCancelList" parameterType="map" resultType="speechReservationCommand">
+		SELECT 
+			sr.speech_reserve_num,
+			sr.speech_num,
+			s.speech_title,
+			sr.mem_id,
+			sr.speech_reserve_status,
+			sr.speech_reserve_date 
+		FROM (SELECT 
+				a.*, 
+				rownum rnum 
+			FROM(SELECT 
+					* 
+				FROM speech_reservation 
+				ORDER BY speech_reserve_num ASC)a) sr, speech s 
+			WHERE sr.speech_num=s.speech_num 
+			AND speech_reserve_status=2
+		<![CDATA[	
+		AND rnum >= #{start} AND rnum <= #{end}
+		]]> 
+	</select>
+	<select id="getReserveCancelCount" parameterType="map" resultType="Integer">
+		SELECT
+		  count(*)
+		FROM speech_reservation
+		WHERE speech_reserve_status=2
+	</select>
+	<!-- 강연 예약 취소자 -->
 </mapper>

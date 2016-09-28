@@ -38,10 +38,15 @@ public class AdminMainController {
 		}
 		
 		//메인 - 관리자 체크사항
-		int speechReserveCount = adminService.getSpeechReserveCount();
-		int marathonCount = adminService.getMarathonCount();
-		int wishlistCount = adminService.getWishlistCount();
 		int rentWaitingCount = adminService.getRentWaitingCount();
+		int wishlistCount = adminService.getWishlistCount();
+		int speechReserveCount = adminService.getSpeechReserveCount();
+		int speechCancelCount = adminService.getSpeechCancelCount();
+		int bookReserveCount = adminService.getBookReserveCount();
+		int marathonCount = adminService.getMarathonCount();
+		int qnaWaitingCount = adminService.getQnaWaitingCount();
+		int prevEventCount = adminService.getPrevEventCount();
+		
 		//메인 - 차단회원 관리
 		int penaltyRowCount = adminService.getRowPenaltyCount();
 		
@@ -68,10 +73,14 @@ public class AdminMainController {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("adminMain");
-		mav.addObject("speechReserveCount",speechReserveCount);
-		mav.addObject("marathonCount",marathonCount);
-		mav.addObject("wishlistCount",wishlistCount);
 		mav.addObject("rentWaitingCount",rentWaitingCount);
+		mav.addObject("wishlistCount",wishlistCount);
+		mav.addObject("speechReserveCount",speechReserveCount);
+		mav.addObject("speechCancelCount",speechCancelCount);
+		mav.addObject("bookReserveCount",bookReserveCount);
+		mav.addObject("marathonCount",marathonCount);
+		mav.addObject("qnaWaitingCount",qnaWaitingCount);
+		mav.addObject("prevEventCount",prevEventCount);
 		mav.addObject("penaltyRowCount",penaltyRowCount);
 		mav.addObject("penaltyList",penaltyList);
 		mav.addObject("rentRankList",rentRankList);

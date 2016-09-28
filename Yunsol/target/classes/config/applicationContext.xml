@@ -64,7 +64,8 @@
 												    kr.spring.qna.domain,
 												    kr.spring.adminMember.domain,
 												    kr.spring.penalty.domain,
-												    kr.spring.grade.domain"/>
+												    kr.spring.grade.domain,
+												    kr.spring.event.domain"/>
 												    <!-- 계속 추가해야함 -->
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -81,6 +82,7 @@
 											kr.spring.qna.dao,
 											kr.spring.adminMember.dao,
 											kr.spring.penalty.dao,
-											kr.spring.grade.dao"/><!-- 계속 추가해야함 -->
+											kr.spring.grade.dao,
+											kr.spring.event.dao"/><!-- 계속 추가해야함 -->
 	</bean>
 </beans>

@@ -32,9 +32,10 @@
 							<li><a href="#"><div>Features</div></a></li>
 							<li class="mega-menu"><a href="#"><div>Pages</div></a></li>
 							<li class="mega-menu"><a href="#"><div>Portfolio</div></a></li>
-							<li><a href="#"><div>EVENT</div></a>
+							<li><a href="#">EVENT</a>
 								<ul>
-									<li><a href="${pageContext.request.contextPath}/event/marathonInfo.do"><div>독서마라톤</div></a></li>
+									<li><a href="${pageContext.request.contextPath}/event/list.do">이벤트</a></li>
+									<li><a href="${pageContext.request.contextPath}/event/marathonInfo.do">독서마라톤</a></li>
 								</ul>
 							</li>
 							<li><a href="#"><div>BOARD</div></a>

@@ -120,4 +120,13 @@ public class SpeechServiceImpl implements SpeechService{
 		return speechMapper.getRowCountNoCheck(map);
 	}
 
+	@Override
+	public List<SpeechReservationCommand> speechReserveCancelList(Map<String, Object> map) {
+		return speechMapper.speechReserveCancelList(map);
+	}
+
+	@Override
+	public int getReserveCancelCount(Map<String, Object> map) {
+		return speechMapper.getReserveCancelCount(map);
+	}
 }

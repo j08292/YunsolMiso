@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.spring.speech.domain.SpeechCommand;
 import kr.spring.speech.service.SpeechService;
 
 @Controller
